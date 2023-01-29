@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext, useState } from 'react';
 import { AppContext } from '../App';
 import {Link} from 'react-router-dom';
 import { FaStar } from "react-icons/fa";
@@ -9,13 +9,13 @@ import { isInWatchlist } from '../utils/isInWatchlist';
 
 function Row(props) {
     const {dark} = useContext(AppContext)
-    
+    const [watchlist, setWatchlist] = useState(JSON.parse(localStorage.getItem('watchlist')));
     
     return (  
         <tr className={`hover ${dark ? 'bg-gray-900 text-white' : ''}`}>
             <th className='flex bg-inherit'>
                 <span className='mr-3'>{props.serialNumber}</span>
-                <button onClick={() => updateWatchlist(props.coin)}>
+                <button onClick={() => updateWatchlist(props.coin, props.fn)}>
                     {!isInWatchlist(props.id) ? <FaRegStar color={dark ? 'white' : 'black'} /> : <FaStar color='gold' />}
                 </button>
                 <Link to={`/coin/${props.id}`} className='flex items-center ml-3'>

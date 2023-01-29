@@ -9,7 +9,6 @@ function CoinDetails() {
     const {id} = useParams();
     const {coins} = useContext(AppContext);
     const coin = coins.filter(c => c.id === id)[0];
-    console.log(coin);
 
     return (  
         <div className='p-3'>

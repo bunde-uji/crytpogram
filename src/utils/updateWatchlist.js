@@ -1,4 +1,6 @@
-export function updateWatchlist(coin) {
+
+
+export function updateWatchlist(coin, fn, arg) {
     let arr = Array.isArray(JSON.parse(localStorage.getItem('watchlist'))) ? JSON.parse(localStorage.getItem('watchlist')) : [];
 
     let isInWatchlist = false;
@@ -10,7 +12,12 @@ export function updateWatchlist(coin) {
         }
     }
     
-    if (!isInWatchlist) arr.push(coin);
-
+    if (!isInWatchlist) {
+        arr.push(coin);
+        
+    }
+    fn();
+    
     localStorage.setItem('watchlist', JSON.stringify(arr));
+    
 }
