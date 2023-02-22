@@ -7,7 +7,9 @@ import ScrollToTop from '../components/ScrollToTop';
 
 
 function Watchlist() {
-    const {coins, setCoins} = useContext(AppContext);
+    const {coins, setCoins, dark} = useContext(AppContext);
+    const watchlist = JSON.parse(localStorage.getItem('watchlist'));
+    const watchlistHasContent = Array.isArray(watchlist) && watchlist.length > 0;
     // console.log('begin')
 
     // async function getCoins() {
@@ -45,13 +47,13 @@ function Watchlist() {
     // if (coins.length) console.log(watchlistCoins[1].current_price);
 
     return (  
-        <div className='p-3'>
+        <div className={`p-3 ${dark ? 'bg-gray-800 text-slate-100' : ''} min-h-[88vh]`}>
             <ScrollToTop />
 
-            <h2 className='text-black'>Watchlist</h2>
+            <h2 className='text-2xl font-semibold'>Watchlist</h2>
 
             <div>
-            {coins &&
+            {watchlistHasContent ?
             <Table 
             rows={JSON.parse(localStorage.getItem('watchlist')).map(coin => {
                 return (
@@ -69,7 +71,7 @@ function Watchlist() {
                     />
                 )
             })} 
-            />}
+            /> : <p>Your watchlist is empty</p>}
             </div>
 
             {/* <div>

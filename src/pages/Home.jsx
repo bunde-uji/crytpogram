@@ -18,10 +18,10 @@ function Home() {
     console.log(isLoading);
     
     return (  
-        <div className={`px-3 py-7 text-gray-800 ${dark ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+        <div className={`px-3 py-7 text-gray-800 ${dark ? 'bg-gray-800 text-white' : 'bg-white text-black'} min-h-[88vh] font-['Red_Rose']`}>
             <ScrollToTop />
 
-            <ToastContainer />
+            {/* <ToastContainer /> */}
             
             <h3 className={`text-xl font-semibold ${dark ? 'text-gray-200' : 'text-black'}`}>Cryptocurrency Prices by Market Cap</h3>
             {coins &&
@@ -45,7 +45,7 @@ function Home() {
                 )
             })} 
             />}
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <p className={`text-lg font-semibold ${dark ? 'text-slate-100' : ''}`}>Loading...</p>}
         </div>
     );
 }

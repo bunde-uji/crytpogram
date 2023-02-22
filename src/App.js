@@ -14,7 +14,7 @@ function App() {
   const [coins, setCoins] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [watchlist, setWatchlist] = useState([]);
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
   useEffect(()=> {
     async function getCoins() {
