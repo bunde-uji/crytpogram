@@ -46,7 +46,7 @@ function CoinDetails() {
                                 <h1 className='text-3xl font-semibold mx-2'>{coin.name}</h1>
                                 <span className='text-black text-[12px] font-semibold py-1 px-2 rounded-sm bg-gray-300'>{coin.symbol.toUpperCase()}</span>
                             </div>
-                            <button className='border border-gray-400 p-1 rounded-md' onClick={updateWatchlist(coin, coins)}>
+                            <button className='border border-gray-400 p-1 rounded-md' onClick={() => updateWatchlist(coin, coins)}>
                                 <FaRegStar/>
                             </button>
                         </div>
